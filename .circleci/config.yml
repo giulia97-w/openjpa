@@ -8,5 +8,16 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Analyze on SonarCloud
-          command: mvn verify org.jacoco:jacoco-maven-plugin:prepare-agent
+          name: Build and Test
+          command: mvn clean install
+      - run:
+          name: Generate Jacoco Report
+          command: mvn jacoco:report
+      - store_artifacts:
+          path: target/site/jacoco
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
