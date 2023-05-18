@@ -36,7 +36,7 @@
     <description>OpenJPA JDBC</description>
 
     <properties>
-        <sonar.coverage.jacoco.xmlReportPaths>openjpa-jdbc/target/site/jacoco</sonar.coverage.jacoco.xmlReportPaths>
+        <sonar.coverage.jacoco.xmlReportPaths>openjpa-jdbc/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
         <!--<mockito.version>2.23.0</mockito.version>-->
         <!--<surefire.version>3.0.0-M4</surefire.version>-->
     </properties>
