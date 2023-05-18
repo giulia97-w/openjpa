@@ -14,7 +14,7 @@ jobs:
           name: Generate Jacoco Report
           command: mvn jacoco:report
       - store_artifacts:
-          path: target/site/jacoco
+          path: openjpa-jdbc/target/site/jacoco
 
 workflows:
   version: 2
