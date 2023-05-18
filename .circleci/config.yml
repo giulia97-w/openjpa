@@ -9,10 +9,10 @@ jobs:
       - checkout
       - run:
           name: Build and Test code
-          command: mvn clean install
+          command: mvn clean install -f openjpa-jdbc/pom.xml
       - run:
           name: Generate Jacoco Report
-          command: mvn jacoco:report
+          command: mvn jacoco:report -f openjpa-jdbc/pom.xml
       - store_artifacts:
           path: openjpa-jdbc/target/site/jacoco
 
