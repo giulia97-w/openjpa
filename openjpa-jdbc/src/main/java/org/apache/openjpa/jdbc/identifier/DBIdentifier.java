@@ -944,4 +944,6 @@ public class DBIdentifier extends IdentifierImpl implements Cloneable, Identifie
     public DBIdentifier getUnqualifiedName() {
         return this;
     }
+
+	
 }
