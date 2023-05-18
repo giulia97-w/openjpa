@@ -38,18 +38,20 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=giulia97-w_openjpa 
 
-      - name: Save Pit Reports for openjpa-jdbc
+      - name: Save Jacoco and Pit Reports for openjpa-jdbc
         uses: actions/upload-artifact@v3
         with:
-          name: Pit Reports for openjpa-jdbc
+          name: Pit and Jacoco Reports for openjpa-jdbc
           path: |
+            openjpa-jdbc/target/site/jacoco
             openjpa-jdbc/target/pit-reports
             
-      - name: Save Pit Reports for openjpa-lib
+      - name: Save Jacoco and Pit Reports for openjpa-lib
         uses: actions/upload-artifact@v3
         with:
-          name: Pit Reports for openjpa-lib
+          name: Pit and JacocoReports for openjpa-lib
           path: |
+            openjpa-lib/target/target/site/jacoco
             openjpa-lib/target/pit-reports
             
       
