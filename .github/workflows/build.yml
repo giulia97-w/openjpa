@@ -51,7 +51,7 @@ jobs:
         with:
           name: Pit and JacocoReports for openjpa-lib
           path: |
-            openjpa-lib/target/target/site/jacoco
+            openjpa-lib/target/site/jacoco
             openjpa-lib/target/pit-reports
             
       
