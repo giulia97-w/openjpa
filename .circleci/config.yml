@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build and Test
+          name: Build and Test code
           command: mvn clean install
       - run:
           name: Generate Jacoco Report
