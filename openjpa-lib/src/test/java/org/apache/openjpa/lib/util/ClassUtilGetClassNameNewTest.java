@@ -1,9 +1,14 @@
 package org.apache.openjpa.lib.util;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,48 +16,32 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
-public class ClassUtilGetClassNameNewTest {
+public class ClassUtilGetClassNameTest {
 
-	private String classPath;
-	
+    private final Class<?> inputClass;
+    private final String expectedOutput;
+
+    public ClassUtilGetClassNameTest(Class<?> inputClass, String expectedOutput) {
+        this.inputClass = inputClass;
+        this.expectedOutput = expectedOutput;
+    }
+
     @Parameters
-    public static Collection<Object[]> configure() {
+    public static Collection<Object[]> testData() {
         return Arrays.asList(new Object[][]{
-        	{ ClassUtilGetClassNameNewTest.class.toString() },
-            { ClassUtil.getClassName(int.class) },
-            { null },
-            { "" },
+                {null, null},
+                {String[][].class, "String[][]"},
+                {List.class, "List"},
+                {Object.class, "Object"},
+                {Map.Entry.class, "Map$Entry"}
         });
     }
 
-    public ClassUtilGetClassNameNewTest( String classPath ) {
-        this.classPath = classPath;
-    }
-
-    // La classe testa il metodo getClassName della ClassUtil
-    // utilizzando i 4 casi passati dal metodo configure
     @Test
-    public void getClassNameTest() {
-        String expectedName;
-        String className = ClassUtil.getClassName(classPath);
-        
-        if(classPath == null){
-            expectedName = null ;
-        } else if(classPath == ""){
-            expectedName = "" ;
-        } else if(classPath == "int"){
-        	expectedName = "int";
-        } else {
-            int lastDot = classPath.toString().lastIndexOf('.');
-            expectedName = lastDot > -1 ? classPath.substring(lastDot + 1) : classPath;
-        }
-        assertEquals(expectedName, className);
-    }
-    
-    private static abstract class MyInnerClass {
-        // not needed
+    public void testGetClassNameFromClass() {
+        assertEquals(expectedOutput, ClassUtil.getClassName(inputClass));
     }
 
-    private static final MyInnerClass INSTANCE = new MyInnerClass() {
-    };
+    
 }
+
