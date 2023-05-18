@@ -1,1 +1,12 @@
 
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: 'circleci/openjdk:11-jdk'
+    steps:
+      - checkout
+      - run:
+          name: Analyze on SonarCloud
+          command: mvn verify org.jacoco:jacoco-maven-plugin:prepare-agent
