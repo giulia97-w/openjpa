@@ -16,12 +16,12 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
-public class ClassUtilGetClassNameTest {
+public class ClassUtilGetClassNameNewTest {
 
     private final Class<?> inputClass;
     private final String expectedOutput;
 
-    public ClassUtilGetClassNameTest(Class<?> inputClass, String expectedOutput) {
+    public ClassUtilGetClassNameNewTest(Class<?> inputClass, String expectedOutput) {
         this.inputClass = inputClass;
         this.expectedOutput = expectedOutput;
     }
