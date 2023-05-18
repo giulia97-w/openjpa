@@ -115,7 +115,7 @@
                     
 
                     
-                    <param>org.apache.openjpa.lib.util.ClassUtilGetClassNameTest</param>
+                    <param>org.apache.openjpa.lib.util.ClassUtilGetClassNameNewTest</param>
                     <param>org.apache.openjpa.lib.util.ClassUtilGetClassNameStringTest</param>
                     <param>org.apache.openjpa.lib.util.ClassUtilGetPackageTest</param>
 
